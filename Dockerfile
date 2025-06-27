@@ -4,17 +4,17 @@ FROM node:16
 # Step 2: Set the working directory inside the container
 WORKDIR /usr/src/app
 
-# Step 3: Copy the package.json and package-lock.json (if available) to install dependencies first
+# Step 3: Copy the package.json and package-lock.json (if available)
 COPY package*.json ./
 
 # Step 4: Install the application dependencies
 RUN npm install
 
-# Step 5: Copy the rest of the application files into the container
+# Step 5: Copy the rest of the application files
 COPY . .
 
-# Step 6: Expose the port that the app will run on
+# Step 6: Expose the port your app will run on
 EXPOSE 3000
 
-# Step 7: Define the command to run your application
-CMD ["node", "app.js"]
+# Step 7: Start the application using index.js
+CMD ["node", "index.js"]
